@@ -14,6 +14,31 @@
         $this->preco = $preco;
     }
 
+    function getId() {
+        return $this->id;
+    }
+    function setId($id) {
+        $this->id = $id;
+    }
+    function getNomeservico() {
+        return $this->servico;
+    }
+    function setServico($servico) {
+        $this->servico = $servico;
+    }
+    function getTipoatendimento() {
+        return $this->tipoatendimento;
+    }
+    function setTipoatendimento($tipoatendimento) {
+        $this->tipoatendimento = $tipoatendimento;
+    }
+    function getPreco() {
+        return $this->preco;
+    }
+    function setPreco($preco) {
+        $this->preco = $preco;
+    }
+
  } 
 
 ?>

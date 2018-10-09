@@ -6,14 +6,14 @@ include_once 'PDOFactory.php';
     class ClienteDAO{
 
         public function inserir(Cliente $cliente){
-            $queryInserir = "INSERT INTO cliente(cpf,nome,telefone) VALUES(:cpf, :nome, :telefone)";
+            $queryInserir = "INSERT INTO cliente (cpf, nome, telefone) VALUES (:cpf, :nome, :telefone)";
             $pdo = PDOFactory::getConexao();
             $comando = $pdo->prepare($queryInserir);
-            $comando->bindParam(":cpf", $cliente->cpf);
-            $comando->bindParam("nome", $cliente->nome);
-            $comando->bindParam("telefone", $cliente->telefone);
+            $comando->bindParam(":cpf",$cliente->cpf);
+            $comando->bindParam(":nome",$cliente->nome);
+            $comando->bindParam(":telefone",$cliente->telefone);
             $comando->execute();
-            $cliente->id = $pdo->lastInserirID();
+            $cliente->id = $pdo->lastInsertId();
             return $cliente;
        }
 

@@ -43,7 +43,7 @@ include_once 'PDOFactory.php';
     		$comando->execute();
             $tiposervico=array();	
 		    while($row = $comando->fetch(PDO::FETCH_OBJ)){
-                $tiposervico[] = new Pet($row->id,$row->nomeservico,$row->tipoatendimento,$row->preco);
+                $tiposervico[] = new TipoServico($row->id, $row->nomeservico, $row->tipoatendimento, $row->preco);
             }
             return $tiposervico;
         }
@@ -55,7 +55,7 @@ include_once 'PDOFactory.php';
 		    $comando->bindParam ('id', $id);
 		    $comando->execute();
 		    $result = $comando->fetch(PDO::FETCH_OBJ);
-		    return new Tiposervico($row->id,$row->nomeservico,$row->tipoatendimento,$row->preco);           
+		    return new TipoServico($row->id, $row->nomeservico, $row->tipoatendimento,$row->preco);           
         }
 
 

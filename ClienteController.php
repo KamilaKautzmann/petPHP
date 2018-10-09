@@ -13,6 +13,7 @@
             $response = $response->withHeader('Content-type', 'application/json');    
             return $response;
         }
+
         public function buscarPorId($request, $response, $args){
             $id = (int) $args['id'];
             
@@ -20,9 +21,10 @@
             $cliente = $dao->buscarPorId($id);  
                 
             $response = $response->withJson($cliente);
-            $response = $response->wit-hHeader('Content-type', 'application/json');    
+            $response = $response->withHeader('Content-type', 'application/json');    
             return $response;
         }
+
         public function inserir( $request, $response, $args){
             $var = $request->getParsedBody();
             $cliente = new Cliente(0, $var['cpf'], $var['nome'], $var['telefone']);

@@ -15,6 +15,31 @@ Class Pet{
 
     }
 
+    function getId() {
+        return $this->id;
+    }
+    function setId($id) {
+        $this->id = $id;
+    }
+    function getNomepet() {
+        return $this->nomepet;
+    }
+    function setNomepet($nomepet) {
+        $this->nomepet = $nomepet;
+    }
+    function getTipoanimal() {
+        return $this->tipoanimal;
+    }
+    function setTipoanimal($tipoanimal) {
+        $this->tipoanimal = $tipoanimal;
+    }
+    function getCliente() {
+        return $this->cliente;
+    }
+    function setCliente($cliente) {
+        $this->cliente = $cliente;
+    }
+
 
 
 }

@@ -20,7 +20,7 @@
             $tipoServico = $dao->buscarPorId($id);  
                 
             $response = $response->withJson($tipoServico);
-            $response = $response->wit-hHeader('Content-type', 'application/json');    
+            $response = $response->withHeader('Content-type', 'application/json');    
             return $response;
         }
         public function inserir( $request, $response, $args){
@@ -38,7 +38,7 @@
         public function atualizar($request, $response, $args){
             $id = (int) $args['id'];
             $var = $request->getParsedBody();
-            $tipoServico = new TipoServico($id, $var['nomeServico'], $var['tipoatendimento'], $var['preco']);
+            $tipoServico = new TipoServico($id, $var['nomeservico'], $var['tipoatendimento'], $var['preco']);
         
             $dao = new TipoServicoDAO;    
             $dao->atualizar($tipoServico);
