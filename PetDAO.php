@@ -3,7 +3,7 @@
 include_once 'Pet.php';
 include_once 'PDOFactory.php';
 include_once 'Cliente.php';
-
+include_once 'ClienteDAO.php';
     class PetDAO{
 
         public function inserir(Pet $pet){
@@ -30,7 +30,7 @@ include_once 'Cliente.php';
             $queryAtualizar = "UPDATE pet SET nomepet=:nomepet, tipoanimal=:tipoanimal, cliente=:cliente WHERE id=:id";            
             $pdo = PDOFactory::getConexao();
             $comando = $pdo->prepare($queryAtualizar);
-            $comando->bindParam("nomepet", $pet->nomepet);
+            $comando->bindParam(":nomepet", $pet->nomepet);
             $comando->bindParam(":tipoanimal",$pet->tipoanimal);
             $comando->bindParam(":cliente",$pet->cliente);
             $comando->bindParam(":id",$pet->id);
@@ -81,9 +81,11 @@ include_once 'Cliente.php';
                $comando->execute();
                $result = $comando->fetch(PDO::FETCH_OBJ);
                $dao = new ClienteDAO;    
-               $clienteObj = $dao->buscarPorId($row->cliente); 
-               return new Pet($row->id,$row->nomepet,$row->tipoanimal,$clienteObj);                      
+               $clienteObj = $dao->buscarPorId($result->cliente); 
+               return  new Pet($result->id,$result->nomepet,$result->tipoanimal,$clienteObj);            
         }
+
+
 
 
 

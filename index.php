@@ -5,6 +5,7 @@ use \Psr\Http\Message\ResponseInterface as Response;
 include_once 'ClienteController.php';
 include_once 'PetController.php';
 include_once 'TipoServicoController.php';
+include_once 'VendaController.php';
 require './vendor/autoload.php';
 
 $app = new \Slim\App;
@@ -36,7 +37,16 @@ $app->group('/tiposervico', function(){
     $this->get('/{id:[0-9]+}','TipoServicoController:buscarPorId');
     $this->put('/{id:[0-9]+}','TipoServicoController:atualizar');
     $this->delete('/{id:[0-9]+}','TipoServicoController:deletar');
-    
+
+});
+
+$app->group('/venda', function(){
+
+    $this->get('','VendaController:listar');
+    $this->post('','VendaController:inserir');
+    $this->get('/{id:[0-9]+}','VendaController:buscarPorId');
+    $this->put('/{id:[0-9]+}','VendaController:atualizar');
+    $this->delete('/{id:[0-9]+}','VendaController:deletar');
 });
 
 

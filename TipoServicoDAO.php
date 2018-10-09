@@ -55,7 +55,7 @@ include_once 'PDOFactory.php';
 		    $comando->bindParam ('id', $id);
 		    $comando->execute();
 		    $result = $comando->fetch(PDO::FETCH_OBJ);
-		    return new TipoServico($row->id, $row->nomeservico, $row->tipoatendimento,$row->preco);           
+		    return new TipoServico($result->id, $result->nomeservico, $result->tipoatendimento,$result->preco);           
         }
 
 
