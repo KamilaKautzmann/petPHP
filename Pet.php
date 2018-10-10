@@ -14,8 +14,9 @@ Class Pet{
         $this->cliente = $cliente;
 
     }
+    
 
-    function getId() {
+   public function getId() {
         return $this->id;
     }
     function setId($id) {

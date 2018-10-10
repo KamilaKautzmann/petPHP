@@ -18,12 +18,12 @@ include_once 'TipoServico.php';
         $pdo = PDOFactory::getConexao();
         $comando = $pdo->prepare($queryInserir);
         $comando->bindParam(":dia", $venda->dia);
-        $comando->bindParam("hora", $venda->hora);
-        $comando->bindParam("cliente", $venda->cliente);
-        $comando->bindParam("pet", $venda->pet);
-        $comando->bindParam("servico", $venda->servico);
+        $comando->bindParam(":hora", $venda->hora);
+        $comando->bindParam(":cliente", $venda->cliente->getId());
+        $comando->bindParam(":pet", $venda->pet->getId());
+        $comando->bindParam(":servico", $venda->servico->getId());
         $comando->execute();
-        $venda->id = $pdo->lastInserirID();
+        $venda->id = $pdo->lastInsertId();
         return $venda;    
     }
 
@@ -43,9 +43,9 @@ include_once 'TipoServico.php';
         $pdo = PDOFactory::getConexao();
         $comando->bindParam(":dia", $venda->dia);
         $comando->bindParam("hora", $venda->hora);
-        $comando->bindParam("cliente", $venda->cliente);
-        $comando->bindParam("pet", $venda->pet);
-        $comando->bindParam("servico", $venda->servico);
+        $comando->bindParam("cliente", $venda->cliente->getId());
+        $comando->bindParam("pet", $venda->pet->getId());
+        $comando->bindParam("servico", $venda->servico->getId());
         $comando->bindParam(":id",$venda->id);
         $comando->execute();        
     }

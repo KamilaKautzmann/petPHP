@@ -21,31 +21,31 @@ $app->group('/cliente', function(){
 });
 
 $app->group('/pet', function(){
-    $this->get('','PetController:listar');
-    $this->post('','PetController:inserir');
+    $this->get('','PetController:listar');//ok
+    $this->post('','PetController:inserir'); //ok
 
-    $this->get('/{id:[0-9]+}','PetController:buscarPorId');
-    $this->put('/{id:[0-9]+}','PetController:atualizar');
-    $this->delete('/{id:[0-9]+}','PetController:deletar');
+    $this->get('/{id:[0-9]+}','PetController:buscarPorId');//ok
+    $this->put('/{id:[0-9]+}','PetController:atualizar'); //ok
+    $this->delete('/{id:[0-9]+}','PetController:deletar'); //ok
     
 });
 
 $app->group('/tiposervico', function(){
-    $this->get('','TipoServicoController:listar');
-    $this->post('','TipoServicoController:inserir');
+    $this->get('','TipoServicoController:listar'); //ok
+    $this->post('','TipoServicoController:inserir'); //ok
 
-    $this->get('/{id:[0-9]+}','TipoServicoController:buscarPorId');
-    $this->put('/{id:[0-9]+}','TipoServicoController:atualizar');
-    $this->delete('/{id:[0-9]+}','TipoServicoController:deletar');
+    $this->get('/{id:[0-9]+}','TipoServicoController:buscarPorId');//ok
+    $this->put('/{id:[0-9]+}','TipoServicoController:atualizar'); //ok
+    $this->delete('/{id:[0-9]+}','TipoServicoController:deletar');//ok
 
 });
 
 $app->group('/venda', function(){
+    $this->get('','VendaController:listar');//ok
+    $this->post('','VendaController:inserir');//ok
 
-    $this->get('','VendaController:listar');
-    $this->post('','VendaController:inserir');
-    $this->get('/{id:[0-9]+}','VendaController:buscarPorId');
-    $this->put('/{id:[0-9]+}','VendaController:atualizar');
+    $this->get('/{id:[0-9]+}','VendaController:buscarPorId');//ok
+    $this->put('/{id:[0-9]+}','VendaController:atualizar');//
     $this->delete('/{id:[0-9]+}','VendaController:deletar');
 });
 

@@ -25,7 +25,7 @@
         }
         public function inserir( $request, $response, $args){
             $var = $request->getParsedBody();
-            $tipoServico = new TipoServico(0, $var['nomeServico'], $var['tipoatendimento'], $var['preco']);
+            $tipoServico = new TipoServico(0, $var['nomeservico'], $var['tipoatendimento'], $var['preco']);
         
             $dao = new TipoServicoDAO;    
             $tipoServico = $dao->inserir($tipoServico);

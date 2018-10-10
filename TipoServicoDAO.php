@@ -6,14 +6,14 @@ include_once 'PDOFactory.php';
     class TipoServicoDAO{
 
         public function inserir(TipoServico $tiposervico){
-            $queryInserir = "INSERT INTO tiposervico(nomeservico,tipoatendimento,preco) VALUES(:nomepet, :tipoatendimento, :preco)";
+            $queryInserir = "INSERT INTO tiposervico (nomeservico, tipoatendimento, preco) VALUES (:nomeservico, :tipoatendimento, :preco)";
             $pdo = PDOFactory::getConexao();
             $comando = $pdo->prepare($queryInserir);
             $comando->bindParam(":nomeservico", $tiposervico->nomeservico);
-            $comando->bindParam("tipoatendimento", $tiposervico->tipoatendimento);
-            $comando->bindParam("preco", $tiposervico->preco);
+            $comando->bindParam(":tipoatendimento", $tiposervico->tipoatendimento);
+            $comando->bindParam(":preco", $tiposervico->preco);
             $comando->execute();
-            $tiposervico->id = $pdo->lastInserirID();
+            $tiposervico->id = $pdo->lastInsertId();
             return $tiposervico;
        }
 
@@ -25,7 +25,7 @@ include_once 'PDOFactory.php';
             $comando->execute();
         }
 
-        public function atualizar(Tiposervico $tiposervico){
+        public function atualizar(TipoServico $tiposervico){
             $queryAtualizar = "UPDATE tiposervico SET nomeservico=:nomeservico, tipoatendimento=:tipoatendimento, preco=:preco WHERE id=:id";            
             $pdo = PDOFactory::getConexao();
             $comando = $pdo->prepare($queryAtualizar);
